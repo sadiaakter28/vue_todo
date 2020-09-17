@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <form @submit.prevent="saveData">
-                    <div class="input-group mb-3 w-100">
+                    <div class="input-group mb-3 w-100 mt-3">
                         <input v-model="todoName" type="text" id="todoName" class="form-control"
                                placeholder="Add New Todo" aria-label="Recipient's username"
                                aria-describedby="button-addon2">

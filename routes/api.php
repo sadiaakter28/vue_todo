@@ -24,4 +24,6 @@ Route::post('todo', 'TodoController@store');
 Route::put('todo/{id}', 'TodoController@update');
 Route::delete('todo/{id}', 'TodoController@delete');
 
-//Route::apiResource('todo', 'TodoController');
+Route::prefix('/user')->group(function () {
+    Route::post('/login', 'Api\LoginController@login');
+});
