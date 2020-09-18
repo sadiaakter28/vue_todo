@@ -83,13 +83,13 @@
         <div class="title m-b-md">
             Todo App
 
-            $user = User::find($id);
+{{--            $user = User::find($id);--}}
 
-            $accessToken = $user->createToken('authToken')->accessToken;
+{{--            $accessToken = $user->createToken('authToken')->accessToken;--}}
 
-            /*
-            Using this process, you'll get an access token!!!
-            */
+{{--            /*--}}
+{{--            Using this process, you'll get an access token!!!--}}
+{{--            */--}}
 
         </div>
 

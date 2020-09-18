@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 import Form from "./form";
+import store from "./store"
+
 window.Form= Form
 /**
  * The following block of code may be used to automatically register your
@@ -22,6 +24,7 @@ window.Form= Form
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('todo-component', require('./components/TodoComponent.vue').default);
+Vue.component('login-form', require('./components/LoginForm.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,5 +33,6 @@ Vue.component('todo-component', require('./components/TodoComponent.vue').defaul
  */
 
 const app = new Vue({
+    store,
     el: '#app',
 });
