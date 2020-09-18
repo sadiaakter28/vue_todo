@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Todo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -27,5 +28,11 @@ class TodoController extends Controller
         $todo = Todo::findOrFail($id);
         $todo->delete();
         return 204;
+    }
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        session()->invalidate();
+        return redirect()->route('login');
     }
 }

@@ -1979,6 +1979,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2048,6 +2066,15 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         console.log(error);
       });
+    },
+    logout: function logout() {
+      localStorage.setItem("blog_token", null);
+      window.location.href = "login";
+      console.log(localStorage);
+    },
+    created: function created() {
+      axios["default"].headers.common["Authorization"] = "Bearer " + localStorage.getItem("blog_token");
+      this.$store.dispatch('currentUser/getUser');
     }
   },
   mounted: function mounted() {
@@ -37733,117 +37760,168 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container", attrs: { id: "todo-list" } }, [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-6 mx-auto" }, [
-        _c(
-          "form",
-          {
-            on: {
-              submit: function($event) {
-                $event.preventDefault()
-                return _vm.saveData($event)
-              }
-            }
-          },
-          [
-            _c("div", { staticClass: "input-group mb-3 w-100 mt-3" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.todoName,
-                    expression: "todoName"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "todoName",
-                  placeholder: "Add New Todo",
-                  "aria-label": "Recipient's username",
-                  "aria-describedby": "button-addon2"
-                },
-                domProps: { value: _vm.todoName },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.todoName = $event.target.value
-                  }
-                }
-              }),
+  return _c("div", [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card mt-4" }, [
+          _c(
+            "div",
+            { staticClass: "card-header d-flex justify-content-between" },
+            [
+              _c("h3", [_vm._v("Vue Todo App")]),
               _vm._v(" "),
-              _c("div", { staticClass: "input-group-append" }, [
-                this.isEdit == false
-                  ? _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-success",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Add")]
-                    )
-                  : _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.updateTodo()
-                          }
-                        }
-                      },
-                      [_vm._v("Update")]
-                    )
-              ])
-            ])
-          ]
-        )
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "table",
-      { staticClass: "table" },
-      _vm._l(_vm.todos, function(todo) {
-        return _c("tr", { key: todo.id, attrs: { title: todo.title } }, [
-          _c("td", { staticClass: "text-left" }, [_vm._v(_vm._s(todo.title))]),
+              _c(
+                "a",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.logout()
+                    }
+                  }
+                },
+                [_vm._v("Logout")]
+              )
+            ]
+          ),
           _vm._v(" "),
-          _c("td", { staticClass: "text-right" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-info",
-                on: {
-                  click: function($event) {
-                    return _vm.editTodo(todo.title, todo.id)
-                  }
-                }
-              },
-              [_vm._v("Edit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn btn-danger",
-                on: {
-                  click: function($event) {
-                    return _vm.deleteTodo(todo.id)
-                  }
-                }
-              },
-              [_vm._v("Delete")]
-            )
-          ])
+          _c(
+            "div",
+            {
+              staticClass:
+                "w-100 h-100 d-flex flex-column justify-content-center align-items-center"
+            },
+            [
+              _c(
+                "div",
+                { staticClass: "container", attrs: { id: "todo-list" } },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c("div", { staticClass: "col-md-6 mx-auto" }, [
+                      _c(
+                        "form",
+                        {
+                          on: {
+                            submit: function($event) {
+                              $event.preventDefault()
+                              return _vm.saveData($event)
+                            }
+                          }
+                        },
+                        [
+                          _c(
+                            "div",
+                            { staticClass: "input-group mb-3 w-100 mt-3" },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.todoName,
+                                    expression: "todoName"
+                                  }
+                                ],
+                                staticClass: "form-control",
+                                attrs: {
+                                  type: "text",
+                                  id: "todoName",
+                                  placeholder: "Add New Todo",
+                                  "aria-label": "Recipient's username",
+                                  "aria-describedby": "button-addon2"
+                                },
+                                domProps: { value: _vm.todoName },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.todoName = $event.target.value
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("div", { staticClass: "input-group-append" }, [
+                                this.isEdit == false
+                                  ? _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-success",
+                                        attrs: { type: "submit" }
+                                      },
+                                      [_vm._v("Add")]
+                                    )
+                                  : _c(
+                                      "button",
+                                      {
+                                        staticClass: "btn btn-primary",
+                                        attrs: { type: "button" },
+                                        on: {
+                                          click: function($event) {
+                                            return _vm.updateTodo()
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Update")]
+                                    )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "table",
+                    { staticClass: "table" },
+                    _vm._l(_vm.todos, function(todo) {
+                      return _c(
+                        "tr",
+                        { key: todo.id, attrs: { title: todo.title } },
+                        [
+                          _c("td", { staticClass: "text-left" }, [
+                            _vm._v(_vm._s(todo.title))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", { staticClass: "text-right" }, [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-info",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editTodo(todo.title, todo.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Edit")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-danger",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteTodo(todo.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("Delete")]
+                            )
+                          ])
+                        ]
+                      )
+                    }),
+                    0
+                  )
+                ]
+              )
+            ]
+          )
         ])
-      }),
-      0
-    )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []
@@ -51794,7 +51872,19 @@ var actions = {
       email: user.email,
       password: user.password
     }).then(function (response) {
-      console.log(response.data);
+      console.log(response, 'dfdsf');
+
+      if (response.data.access_token) {
+        //save token
+        // localStorage.setItem('token',response.data.access_token);
+        //  console.log('jghkj',response.data.access_token)
+        // localStorage.setItem( "blog_token",  response.data.access_token);
+        localStorage.setItem("blog_token", response.data.access_token);
+        console.log('user', response); // this.$router.push('/home');
+
+        window.location.replace("/home");
+      } // console.log(response.data)
+
     });
   }
 };
