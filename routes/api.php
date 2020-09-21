@@ -18,8 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::post('/login', 'AuthController@login');
-
 Route::get('todos', 'TodoController@index');
 Route::get('todo/{id}', 'TodoController@show');
 Route::post('todo', 'TodoController@store');
