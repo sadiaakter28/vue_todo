@@ -10,5 +10,6 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-.git-gh
-.git-bh
+.git-github
+.git-bitbucket
+.idea
