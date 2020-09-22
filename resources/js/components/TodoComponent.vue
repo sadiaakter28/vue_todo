@@ -1,11 +1,12 @@
 <template>
-    <div>
+    <div class="container">
+        <Navbar></Navbar>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card mt-4">
                     <div class="card-header d-flex justify-content-between">
                         <h3>Vue Todo App</h3>
-                        <a @click="logout()">Logout</a>
+                        <h3>{{ user.name }}</h3>
                     </div>
 
                     <div class="w-100 h-100 d-flex flex-column justify-content-center align-items-center">
@@ -40,25 +41,30 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 
 </template>
 
 <script>
+    import Navbar from './layouts/Navbar';
+    import apiClient from '../apiClient'
+
     export default {
+        components: {
+            Navbar
+        },
         data(){
             return{
                 todos:[],
                 id: '',
                 todoName:'',
-                isEdit:false
+                isEdit:false,
+                user: {}
             }
         },
         methods:{
             getTodos(){
-                axios.get('/api/todos').then((res) => {
+                apiClient.get('/api/todos').then((res) => {
                     console.log(res.data)
                     this.todos = res.data
                 },error => {
@@ -67,7 +73,7 @@
                 )
             },
             saveData(){
-                axios.post('/api/todo', {title: this.todoName}).then((res)=>{
+                apiClient.post('/api/todo', {title: this.todoName}).then((res)=>{
                     this.todoName = '';
                     this.getTodos();
                     console.log(res)
@@ -81,7 +87,7 @@
                 this.isEdit = true
             },
             updateTodo(){
-                axios.put('/api/todo/'+this.id,
+                apiClient.put('/api/todo/'+this.id,
                     {title: this.todoName})
                     .then(res => {
                         this.todoName =''
@@ -95,7 +101,7 @@
             },
             deleteTodo(id){
                 console.log(id);
-                axios.delete(`/api/todo/${id}`)
+                apiClient.delete(`/api/todo/${id}`)
                     .then(res => {
                         this.todoName =''
                         this.getTodos()
@@ -105,20 +111,18 @@
                         console.log(error)
                     })
             },
-            logout() {
-                       localStorage.setItem("blog_token",null);
-                        window.location.href = "login";
+        },
 
-                        console.log(localStorage)
-
-            },
-            created(){
-                axios.default.headers.common["Authorization"] = "Bearer " + localStorage.getItem("blog_token");
-                this.$store.dispatch('currentUser/getUser')
+        mounted() {
+            this.getTodos();
+            if(localStorage.getItem('user')) {
+                this.user = JSON.parse(localStorage.getItem('user'));
             }
         },
-        mounted() {
-            this.getTodos()
+
+        created(){
+            // axios.default.headers.common["Authorization"] = "Bearer " + localStorage.getItem("blog_token");
+            // this.$store.dispatch('currentUser/getUser')
         }
     }
 </script>

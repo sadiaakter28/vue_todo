@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="container">
+        <Navbar></Navbar>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" v-model="user.email" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -13,7 +14,13 @@
 </template>
 
 <script>
+    import Navbar from './layouts/Navbar';
+
     export default {
+        name: 'Login',
+        components: {
+            Navbar
+        },
         data: ()=> ({
             user:{
                 email:"",
@@ -22,7 +29,18 @@
         }),
         methods: {
             login() {
-                this.$store.dispatch('currentUser/loginUser', this.user)
+                axios.post("/api/user/login", this.user).then(response=>{
+                    if(response.data.access_token ) {
+                        localStorage.setItem("blog_token", response.data.access_token);
+                        localStorage.setItem("user", JSON.stringify(response.data.user));
+                        console.log('this.user',response);
+                        this.$router.push('/home');
+                    }
+                })
+            },
+            isLoggedIn() {
+                let authToken = getAuthToken()
+                return !!authToken && !isTokenExpired(authToken)
             }
         }
     }

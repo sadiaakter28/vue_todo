@@ -12,20 +12,16 @@ const actions = {
             email: user.email,
             password: user.password,
         }).then(response=>{
-            console.log(response, 'dfdsf');
+            // console.log(response, 'dfdsf');
             if( response.data.access_token ) {
                 //save token
-                // localStorage.setItem('token',response.data.access_token);
-                //  console.log('jghkj',response.data.access_token)
-                // localStorage.setItem( "blog_token",  response.data.access_token);
+
                 localStorage.setItem(
                     "blog_token",
                     response.data.access_token
                 )
                 console.log('user',response);
-                // this.$router.push('/home');
-
-                window.location.replace("/home")
+                this.$router.push('/home');
         }
             // console.log(response.data)
         })

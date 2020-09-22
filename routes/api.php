@@ -17,17 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-//Route::post('/login', 'AuthController@login');
-
-Route::get('todos', 'TodoController@index');
-Route::get('todo/{id}', 'TodoController@show');
-Route::post('todo', 'TodoController@store');
-Route::put('todo/{id}', 'TodoController@update');
-Route::delete('todo/{id}', 'TodoController@delete');
-Route::get('logout', 'TodoController@logout');
-
 Route::prefix('/user')->group(function () {
     Route::post('/login', 'Api\LoginController@login');
-    Route::middleware('auth:api')->get('/all', 'Api\UserController@index');
+});
+
+
+Route::middleware('auth:api')->group(function ()
+{
+    Route::get('todos', 'TodoController@index');
+    Route::get('todo/{id}', 'TodoController@show');
+    Route::post('todo', 'TodoController@store');
+    Route::put('todo/{id}', 'TodoController@update');
+    Route::delete('todo/{id}', 'TodoController@delete');
+    Route::get('logout', 'TodoController@logout');
 });

@@ -2,19 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cf30d6d9-ba83-429e-8b13-37eeef6f7276" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/apiClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/plugins/vuetify.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TodoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TodoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/LoginForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/LoginForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/TodoComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/TodoComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/currentUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/currentUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/todo.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -177,13 +182,15 @@
   </component>
   <component name="ProjectId" id="1hcdPDd7ZorXh1VAZ1dfepGNDv9" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lpa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/components" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Sadia Akter\projects\vue_todo\resources\js\components" />
+      <recent name="D:\Sadia Akter\projects\vue_todo\resources\js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -217,7 +224,12 @@
       <workItem from="1600314292000" duration="633000" />
       <workItem from="1600338203865" duration="7319000" />
       <workItem from="1600399883525" duration="6108000" />
-      <workItem from="1600409012172" duration="22505000" />
+      <workItem from="1600409012172" duration="23058000" />
+      <workItem from="1600659372127" duration="2691000" />
+      <workItem from="1600665855590" duration="1662000" />
+      <workItem from="1600667925480" duration="20009000" />
+      <workItem from="1600745343367" duration="4379000" />
+      <workItem from="1600757023843" duration="2764000" />
     </task>
     <servers />
   </component>
